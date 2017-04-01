@@ -17,7 +17,7 @@ import (
 
 	"github.com/drone/drone/model"
 	"github.com/drone/drone/router/middleware/session"
-	"github.com/drone/mq/stomp"
+	"github.com/mrwill84/mq/stomp"
 )
 
 func GetBuilds(c *gin.Context) {

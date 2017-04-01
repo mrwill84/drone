@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/drone/drone/model"
-	"github.com/drone/mq/logger"
-	"github.com/drone/mq/stomp"
+	"github.com/mrwill84/mq/logger"
+	"github.com/mrwill84/mq/stomp"
 	"github.com/tidwall/redlog"
 
 	"github.com/Sirupsen/logrus"

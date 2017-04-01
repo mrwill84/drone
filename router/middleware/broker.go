@@ -7,9 +7,9 @@ import (
 	handlers "github.com/drone/drone/server"
 
 	"github.com/codegangsta/cli"
-	"github.com/drone/mq/logger"
-	"github.com/drone/mq/server"
-	"github.com/drone/mq/stomp"
+	"github.com/mrwill84/mq/logger"
+	"github.com/mrwill84/mq/server"
+	"github.com/mrwill84/mq/stomp"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/gin-gonic/gin"
