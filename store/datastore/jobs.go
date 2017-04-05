@@ -16,7 +16,7 @@ func (db *datastore) GetJob(id int64) (*model.Job, error) {
 func (db *datastore) GetJobNumber(build *model.Build, num int) (*model.Job, error) {
 	var job = new(model.Job)
 	fmt.Println("GetJobNumber:", build.ID, ",", num)
-	var err = meddler.QueryRow(db, job, rebind(jobNumberQuery), build.ID, num)
+	var err = meddler.QueryRow(db, job, rebind(jobNumberQuery), build.ID, num+1)
 	return job, err
 }
 
