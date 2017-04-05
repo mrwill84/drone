@@ -5,6 +5,8 @@ import (
 	"io"
 	"io/ioutil"
 
+	"fmt"
+
 	"github.com/drone/drone/model"
 	"github.com/russross/meddler"
 )
@@ -12,6 +14,8 @@ import (
 func (db *datastore) ReadLog(job *model.Job) (io.ReadCloser, error) {
 	var log = new(model.Log)
 	var err = meddler.QueryRow(db, log, rebind(logQuery), job.ID)
+	fmt.Println("ReadLog", job.ID)
+
 	var buf = bytes.NewBuffer(log.Data)
 	return ioutil.NopCloser(buf), err
 }

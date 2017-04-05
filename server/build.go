@@ -15,6 +15,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/square/go-jose"
 
+	"fmt"
+
 	"github.com/drone/drone/model"
 	"github.com/drone/drone/router/middleware/session"
 	"github.com/mrwill84/mq/stomp"
@@ -88,19 +90,19 @@ func GetBuildLogs(c *gin.Context) {
 	// the repquest parameter.
 	num, _ := strconv.Atoi(c.Params.ByName("number"))
 	seq, _ := strconv.Atoi(c.Params.ByName("job"))
-
+	fmt.Println("GetBuildNumber")
 	build, err := store.GetBuildNumber(c, repo, num)
 	if err != nil {
 		c.AbortWithError(404, err)
 		return
 	}
-
+	fmt.Println("GetJobNumber")
 	job, err := store.GetJobNumber(c, build, seq)
 	if err != nil {
 		c.AbortWithError(404, err)
 		return
 	}
-
+	fmt.Println("ReadLog")
 	r, err := store.ReadLog(c, job)
 	if err != nil {
 		c.AbortWithError(404, err)
